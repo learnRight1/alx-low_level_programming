@@ -2,14 +2,14 @@
 #include <stdlib.h>
 /**
  * main - prints coints left
- * @args: parameter entry
+ * @argc: parameter entry
  * @argv: one number og arguments
  * Return: 0;
  */
-int main(int args, char *argv[])
+int main(int argc, char *argv[])
 {
 int c, coins = 0;
-if (args != 2)
+if (argc != 2)
 {
 printf("Error\n")
 return (1);
