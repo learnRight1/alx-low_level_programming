@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h>i
 /**
  * main - function
  * @argc: length of argv
@@ -25,6 +25,7 @@ return (0);
 while (coins[position] != '\0')
 {
 if (total >= coins[position])
+{
 aux = (total / coins[position]);
 change += aux;
 total -= coins[position] * aux;
