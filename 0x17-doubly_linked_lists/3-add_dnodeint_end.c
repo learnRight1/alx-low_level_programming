@@ -5,7 +5,7 @@
  * add_dnodeint_end - Adds a new node at the end of a dlistint_t list.
  * @head: A pointer to a pointer to the head node of the list.
  * @n: The integer value to store in the new node.
- *     
+ *
  * Return: If the function succeeds - a pointer to the new node.
  * If it fails - NULL.
  */
