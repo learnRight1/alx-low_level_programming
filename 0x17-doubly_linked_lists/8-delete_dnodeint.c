@@ -1,48 +1,45 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "lists.h"
 
-/* Doubly linked list node structure */
-typedef struct dlistint_s {
-int n;
-struct dlistint_s *prev;
-struct dlistint_s *next;
-} dlistint_t;
-
-/* Deletes the node at the given index in the doubly linked list */
-int delete_dnodeint_at_index(dlistint_t **head, unsigned int index) {
-dlistint_t *current = *head;
-
-/* If list is empty or index is out of range */
-if (*head == NULL || index < 0) {
-return -1;
+/**
+ * delete_dnodeint_at_index - deletes the node at index of a dlistint_t list.
+ * @head: pointer to the list.
+ * @index: position of the node to delete.
+ * Return: 1 if it succeeded, -1 if it failed.
+ */
+int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
+{
+dlistint_t *aux_node = *head;
+dlistint_t *node_to_delete = *head;
+unsigned int idx;
+unsigned int cont = 0;
+/* border case for empty list */
+if (!(*head))
+return (-1);
+/* border case for delete at the beginning */
+if (index == 0)
+{
+*head = node_to_delete->next;
+free(node_to_delete);
+if (*head)
+(*head)->prev = NULL;
+return (1);
 }
-
-/* Delete the head node */
-if (index == 0) {
-*head = current->next;
-if (current->next != NULL) {
-current->next->prev = NULL;
+/* search of position to delete */
+idx = index - 1;
+while (aux_node && cont != idx)
+{
+cont++;
+aux_node = aux_node->next;
 }
-free(current);
-return 1;
+/* general case */
+if (cont == idx && aux_node)
+{
+node_to_delete = aux_node->next;
+if (node_to_delete->next)
+node_to_delete->next->prev = aux_node;
+aux_node->next = node_to_delete->next;
+free(node_to_delete);
+return (1);
 }
-
-/* Traverse the list to find the node to delete */
-unsigned int i;
-for (i = 0; current != NULL && i < index; i++) {
-current = current->next;
-}
-
-/* If index is greater than the number of nodes */
-if (current == NULL) {
-return -1;
-}
-
-/* Delete the node */
-current->prev->next = current->next;
-if (current->next != NULL) {
-current->next->prev = current->prev;
-}
-free(current);
-return 1;
+return (-1);
 }
