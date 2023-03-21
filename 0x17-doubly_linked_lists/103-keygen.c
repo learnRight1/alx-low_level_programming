@@ -4,7 +4,7 @@
 
 /**
  * f4 - finds the biggest number
- *   
+ *
  * @usrn: username
  * @len: length of username
  * Return: the biggest number
@@ -29,7 +29,7 @@ return (rand_num & 63);
 
 /**
  * f5 - multiplies each char of username
- *   
+ *
  * @usrn: username
  * @len: length of username
  * Return: multiplied char
@@ -49,7 +49,7 @@ return (((unsigned int)ch ^ 239) & 63);
 
 /**
  * f6 - generates a random char
- *   
+ *
  * @usrn: username
  * Return: a random char
  */
@@ -68,7 +68,7 @@ return (((unsigned int)ch ^ 229) & 63);
 
 /**
  * main - Entry point
- *   
+ *
  * @argc: arguments count
  * @argv: arguments vector
  * Return: Always 0
