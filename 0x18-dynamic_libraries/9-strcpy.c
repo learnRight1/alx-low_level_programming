@@ -9,6 +9,7 @@
  *       
  * Return: pointer to dest input parameter
  */
+
 char *_strcpy(char *dest, char *src)
 {
 int a, b = 0;
